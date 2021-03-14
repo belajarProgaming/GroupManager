@@ -42,7 +42,7 @@ def no_longer_afk(bot: Bot, update: Update):
     if res:
         firstname = update.effective_user.first_name
         try:
-            update.effective_message.reply_text(tld(chat.id, f"{firstname} is no longer AFK!"))
+            update.effective_message.reply_text(tld(chat.id, f"{firstname} TELAH KEMBALI!"))
         except:
             return
 
@@ -85,7 +85,7 @@ def check_afk(bot, update, user_id, fst_name):
     if sql.is_afk(user_id):
         user = sql.check_afk_status(user_id)
         if not user.reason:
-            res = tld(chat.id, f"{fst_name} is AFK!")
+            res = tld(chat.id, f"{fst_name} Sedang OFFLINE!")
         else:
             res = tld(chat.id, f"{fst_name} Sedang OFFLINE! Alasan:\n{user.reason}")
         update.effective_message.reply_text(res)
